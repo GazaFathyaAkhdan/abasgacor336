@@ -216,6 +216,71 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .nav-item{flex:1;padding:0.65rem 0.4rem;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;color:var(--muted);font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;border:none;background:none;transition:color 0.15s;}
 .nav-item .ni{font-size:1.25rem;}
 .nav-item.active{color:var(--gold);}
+
+/* ── PAGES ── */
+.page{display:none;}
+.page.active{display:block;}
+
+.announce-naked{display:flex;align-items:center;justify-content:space-between;gap:0.8rem;padding:0.5rem 0;margin-bottom:1rem;}
+.announce-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;}
+.announce-lines{flex:1;display:flex;flex-direction:column;gap:0.4rem;}
+.ann-line{font-size:0.85rem;font-weight:700;color:var(--text);}
+.ann-line-mid{display:flex;align-items:center;gap:0.5rem;}
+.ann-tag{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.3);border-radius:4px;padding:1px 7px;font-size:0.65rem;color:var(--gold);font-weight:700;letter-spacing:0.5px;white-space:nowrap;}
+.ann-muted{color:var(--muted);font-size:0.75rem;font-weight:400;}
+.ann-btn{background:linear-gradient(135deg,var(--gold),#ffaa00);border:none;border-radius:10px;padding:0.65rem 1rem;color:#000;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.82rem;cursor:pointer;white-space:nowrap;letter-spacing:0.5px;min-width:80px;}
+
+/* ── HADIAH PAGE ── */
+.hadiah-banner{background:linear-gradient(135deg,#1a1040,#0a1828);border:1px solid var(--border);border-radius:14px;padding:1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;gap:0.8rem;}
+.hb-text{flex:1;}
+.hb-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:2px;color:var(--gold);}
+.hb-desc{font-size:0.78rem;color:var(--muted);margin-top:0.3rem;line-height:1.4;}
+.hb-btn{background:linear-gradient(135deg,var(--gold),#ffaa00);border:none;border-radius:10px;padding:0.6rem 1rem;color:#000;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.82rem;cursor:pointer;white-space:nowrap;letter-spacing:0.5px;}
+
+.daily-card{background:var(--card);border:1px solid rgba(0,255,136,0.3);border-radius:14px;padding:1rem;margin-bottom:1rem;}
+.dc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.7rem;}
+.dc-title{font-weight:900;font-size:0.9rem;}
+.dc-sub{font-size:0.72rem;color:var(--muted);margin-top:0.15rem;}
+.dc-spins{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--green);line-height:1;}
+.dc-timer{font-size:0.75rem;color:var(--muted);background:var(--bg2);border-radius:6px;padding:0.3rem 0.7rem;text-align:center;margin-bottom:0.7rem;}
+.dc-btn{width:100%;padding:0.75rem;background:linear-gradient(135deg,#00aa55,#00ff88);border:none;border-radius:10px;color:#000;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.9rem;cursor:pointer;letter-spacing:0.5px;}
+.dc-btn:disabled{opacity:0.4;cursor:not-allowed;}
+
+.streak-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:1rem;}
+.streak-day{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.6rem 0.3rem;text-align:center;}
+.streak-day.claimed{border-color:var(--gold);background:linear-gradient(135deg,#1a1500,#14140a);}
+.streak-day.today{border-color:var(--green);animation:col-glow 1.2s ease-in-out infinite alternate;}
+.sd-day{font-size:0.6rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;}
+.sd-icon{font-size:1.3rem;margin:0.2rem 0;}
+.sd-reward{font-size:0.65rem;color:var(--gold);font-weight:700;}
+
+/* ── ACHIEVEMENT PAGE ── */
+.ach-header{background:linear-gradient(135deg,#1a1040,#0a1828);border-bottom:1px solid var(--border);padding:1rem;text-align:center;}
+.ach-header h2{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:3px;color:var(--gold);}
+.ach-header p{font-size:0.8rem;color:var(--muted);margin-top:0.2rem;}
+.ach-progress{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.8rem 1rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;}
+.ach-progress .ap-label{font-size:0.78rem;color:var(--muted);font-weight:700;}
+.ach-progress .ap-count{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--gold);}
+.ach-progress .ap-bar-wrap{flex:1;margin:0 0.8rem;background:var(--bg2);border-radius:4px;height:6px;overflow:hidden;}
+.ach-progress .ap-bar{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));border-radius:4px;transition:width 0.5s ease;}
+.ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:1rem;}
+.ach-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:0.9rem 0.8rem;text-align:center;position:relative;transition:all 0.2s;overflow:hidden;}
+.ach-card.unlocked{border-color:rgba(255,215,0,0.5);background:linear-gradient(135deg,#1a1500,#14140a);}
+.ach-card.unlocked::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(255,215,0,0.08) 0%,transparent 70%);pointer-events:none;}
+.ach-card.locked{opacity:0.45;filter:grayscale(0.6);}
+.ach-icon{font-size:2rem;margin-bottom:0.35rem;display:block;}
+.ach-name{font-weight:900;font-size:0.78rem;margin-bottom:0.2rem;}
+.ach-desc{font-size:0.65rem;color:var(--muted);line-height:1.3;}
+.ach-unlocked-tag{position:absolute;top:6px;right:6px;background:var(--gold);color:#000;font-size:0.55rem;font-weight:900;padding:1px 5px;border-radius:4px;letter-spacing:0.5px;}
+.ach-locked-tag{position:absolute;top:6px;right:6px;font-size:0.75rem;}
+
+/* new achievement toast */
+.ach-toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:linear-gradient(135deg,#1a1000,#2a1800);border:1px solid var(--gold);border-radius:14px;padding:0.7rem 1.2rem;display:flex;align-items:center;gap:0.6rem;z-index:300;opacity:0;transition:all 0.4s;pointer-events:none;white-space:nowrap;box-shadow:0 4px 20px rgba(255,215,0,0.3);}
+.ach-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.ach-toast .at-icon{font-size:1.4rem;}
+.ach-toast .at-text{font-size:0.8rem;}
+.ach-toast .at-title{font-weight:900;color:var(--gold);}
+.ach-toast .at-sub{color:var(--muted);font-size:0.72rem;}
 </style>
 </head>
 <body>
@@ -226,7 +291,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     <div class="auth-logo">
       <div class="logo-icon">♣️</div>
       <h1>ABAS GACOR 336</h1>
-      <p>Platform Slot #1 Geng Walet</p>
+      <p>Sponsor: Pentol, Baso, Tompel</p>
     </div>
     <div class="tab-group">
       <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Masuk</button>
@@ -258,14 +323,14 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     </div>
   </header>
 
-  <div class="ticker"><span class="ticker-inner">🏆 BosGini99 menang 88,888 koin &nbsp;&nbsp;&nbsp; 💎 Pantat_sultan menang 250,000 koin &nbsp;&nbsp;&nbsp; 🔥 Parjihuy93 menang 777,777 koin &nbsp;&nbsp;&nbsp; 🎉 JACKPOT! WaletTerbang dapat 1,000,000 koin &nbsp;&nbsp;&nbsp; ⚡ Member baru bergabung dari Bandung &nbsp;&nbsp;&nbsp; 🦅 Total kemenangan hari ini: 99,999,999 koin</span></div>
+  <div class="ticker"><span class="ticker-inner">🏆 Parjihuy99 menang 88,888 koin &nbsp;&nbsp;&nbsp; 💎 AnakDenDen_Sultan menang 250,000 koin &nbsp;&nbsp;&nbsp; 🔥 Pentol_ayam menang 777,777 koin &nbsp;&nbsp;&nbsp; 🎉 JACKPOT! WaletTerbang dapat 1,000,000 koin &nbsp;&nbsp;&nbsp; ⚡ Member baru bergabung dari Bandung &nbsp;&nbsp;&nbsp; 🦅 Total kemenangan hari ini: 99,999,999 koin</span></div>
 
   <div class="welcome-banner">
     <div><h2>Halo, <span id="welcome-name">Player</span>! 👋</h2><p>Semoga hoki hari ini!</p></div>
     <div class="welcome-coins"><div id="balance-big">10,000</div><small>TOTAL KOIN</small></div>
   </div>
 
-  <div class="main main-pad">
+  <div id="page-slot" class="main main-pad">
 
     <div class="free-spins-bar">
       <div><div class="fs-label">🎁 FREE SPINS TERSEDIA</div><div style="font-size:0.7rem;color:var(--muted);margin-top:1px;">Bonus member baru!</div></div>
@@ -275,7 +340,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 
     <!-- 3×3 SLOT -->
     <div class="slot-machine">
-      <div class="slot-title">⚡ MESIN ANAK WALET ⚡</div>
+      <div class="slot-title">⚡ MESIN BASO X 9000 ⚡</div>
       <div class="paylines-row" id="paylines-row">
         <span class="pl-tag" id="pl0">— Tengah</span>
         <span class="pl-tag" id="pl1">— Atas</span>
@@ -331,15 +396,84 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     <div class="section-title">📜 RIWAYAT SPIN</div>
     <div class="history"><div class="history-list" id="history-list"><div style="text-align:center;color:var(--muted);font-size:0.82rem;padding:1rem 0;">Belum ada riwayat. Ayo spin!</div></div></div>
 
+  </div><!-- /page-slot -->
+
+  <!-- ACHIEVEMENT PAGE -->
+  <div id="page-ach" class="page main-pad" style="display:none;">
+    <div class="ach-header">
+      <h2>🏅 ACHIEVEMENT</h2>
+      <p>Kumpulkan semua badge dan buktikan siapa yang paling gacor!</p>
+    </div>
+    <div class="main" style="padding-top:0.85rem;">
+      <div class="ach-progress">
+        <div><div class="ap-label">TERBUKA</div><div class="ap-count" id="ach-count">0/12</div></div>
+        <div class="ap-bar-wrap"><div class="ap-bar" id="ach-bar" style="width:0%"></div></div>
+      </div>
+      <div class="ach-grid" id="ach-grid"></div>
+    </div>
+  </div>
+
+  <!-- HADIAH PAGE -->
+  <div id="page-hadiah" class="page main-pad" style="display:none;">
+    <div class="ach-header">
+      <h2>🎁 HADIAH</h2>
+      <p>Info hadiah & klaim spin gratis harian!</p>
+    </div>
+    <div class="main" style="padding-top:0.85rem;">
+
+      <!-- Pengumuman — tanpa container, cuma teks & tombol -->
+      <div class="announce-naked">
+        <div class="announce-lines">
+          <div style="display:flex;gap:5px;align-items:center;">
+              <div class="ann-line" id="result" style="font-size:x-large;"></div>
+              =
+              <span id="coin-display"></span>
+          </div>
+          <div class="ann-line ann-line-mid">
+            <span id="ann-line2">Tarik saldo anda via</span>
+            <span class="ann-tag" id="ann-tag">Dana</span>
+          </div>
+        </div>
+        <button class="ann-btn" id="ann-btn">TARIK</button>
+      </div>
+
+      <!-- Hadiah harian — spin gratis setiap hari -->
+      <div class="section-title">📅 HADIAH HARIAN</div>
+      <div class="daily-card">
+        <div class="dc-top">
+          <div>
+            <div class="dc-title">🎰 Free Spin Harian</div>
+            <div class="dc-sub">Datang setiap hari, klaim spin gratis kamu!</div>
+          </div>
+          <div class="dc-spins" id="dc-spins">+5</div>
+        </div>
+        <div class="dc-timer" id="dc-timer">Memuat...</div>
+        <button class="dc-btn" id="dc-btn" onclick="klaimHarian()">KLAIM SEKARANG</button>
+      </div>
+
+      <!-- Hadiah streak -->
+      <div class="section-title">🔥 HADIAH STREAK</div>
+      <div class="streak-grid" id="streak-grid"></div>
+
+    </div>
   </div>
 
   <nav class="bottom-nav">
-    <button class="nav-item active"><span class="ni">🎰</span><span>Slot</span></button>
+    <button class="nav-item active" id="nav-slot" onclick="switchPage('slot')"><span class="ni">🎰</span><span>Slot</span></button>
     <button class="nav-item" onclick="showLocked()"><span class="ni">🎮</span><span>Game</span></button>
-    <button class="nav-item" onclick="showPromo()"><span class="ni">🎁</span><span>Promo</span></button>
-    <button class="nav-item" onclick="showLocked()"><span class="ni">🏆</span><span>Ranking</span></button>
+    <button class="nav-item" id="nav-hadiah" onclick="switchPage('hadiah')"><span class="ni">🎁</span><span>Hadiah</span></button>
+    <button class="nav-item" id="nav-ach" onclick="switchPage('ach')"><span class="ni">🏅</span><span>Badge</span></button>
     <button class="nav-item" onclick="showProfile()"><span class="ni">👤</span><span>Profil</span></button>
   </nav>
+
+  <!-- Achievement Toast -->
+  <div class="ach-toast" id="ach-toast">
+    <span class="at-icon" id="toast-icon">🏅</span>
+    <div class="at-text">
+      <div class="at-title" id="toast-title">Badge Baru!</div>
+      <div class="at-sub" id="toast-sub">Kamu dapat achievement!</div>
+    </div>
+  </div>
 </div>
 
 <div class="popup-overlay" id="popup">
@@ -559,9 +693,11 @@ function finishSpin(grid){
 
   if(totalWin>0){
     balance+=totalWin; wins++; streak++;
+    if(streak>maxStreak) maxStreak=streak;
+    const maxMult = Math.max(...winLines.map(w=>w.mult));
+    if(maxMult>=100) gotJackpot=true;
     resultEl.className='result-msg result-win';
     resultEl.textContent=`🏆 MENANG! +${totalWin.toLocaleString()} koin`;
-    // highlight win lines
     winLines.forEach(({pl})=>{
       document.getElementById(pl.id).classList.add('lit');
       pl.rows.forEach((row,col)=>{
@@ -575,8 +711,6 @@ function finishSpin(grid){
       for(let c=0;c<3;c++) document.getElementById('rw-'+c).classList.add('winner');
       setTimeout(()=>{ for(let c=0;c<3;c++) document.getElementById('rw-'+c).classList.remove('winner'); },2200);
     });
-    // show rich win popup after short delay
-    const maxMult = Math.max(...winLines.map(w=>w.mult));
     setTimeout(()=>showWinPopup(totalWin, maxMult, streak), 600);
   } else if(near){
     streak=0;
@@ -589,6 +723,9 @@ function finishSpin(grid){
     resultEl.textContent='😅 Belum beruntung!';
     setTimeout(()=>showLosePopup(bet), 400);
   }
+  // track max bet used
+  if(bet>maxBetUsed) maxBetUsed=bet;
+  checkAchievements();
 
   addHistory(grid, totalWin, bet);
   updateUI(); saveUser();
@@ -650,6 +787,7 @@ function updateUI(){
   document.getElementById('stat-streak').textContent=streak;
   document.getElementById('free-spins-count').textContent=freeSpins;
   document.getElementById('bet-display').textContent=bet;
+  updateRupiah();
 }
 function changeBet(d){setBet(bet+d);}
 function setBet(v){bet=Math.max(100,Math.min(balance||100,v));updateUI();}
@@ -666,6 +804,10 @@ function saveUser(){
   if(session&&users[session.username]){
     users[session.username].balance=balance;
     users[session.username].freeSpins=freeSpins;
+    users[session.username].achievements=[...unlockedAch];
+    users[session.username].maxStreak=maxStreak;
+    users[session.username].gotJackpot=gotJackpot;
+    users[session.username].maxBetUsed=maxBetUsed;
     localStorage.setItem('aw_users',JSON.stringify(users));
   }
 }
@@ -701,11 +843,12 @@ function startSession(u,data){
   localStorage.setItem('aw_sess',JSON.stringify(session));
   balance=data.balance||10000; freeSpins=data.freeSpins!==undefined?data.freeSpins:10;
   wins=0;totalSpins=0;streak=0;
+  loadAchievements(data);
   document.getElementById('auth-screen').style.display='none';
   document.getElementById('app').style.display='block';
   document.getElementById('welcome-name').textContent=u;
   document.getElementById('user-avatar').textContent=u.slice(0,2).toUpperCase();
-  buildReels(); updateUI();
+  initSlotPage(); buildReels(); updateUI();
 }
 function doLogout(){
   localStorage.removeItem('aw_sess');session=null;
@@ -820,7 +963,181 @@ function showLocked(){showPopupMsg('🔒','SEGERA HADIR','Fitur ini masih dalam 
 function showPromo(){showPopupMsg('🎁','PROMO SPESIAL','Spin 10x dan dapatkan 1000 koin bonus!');}
 function showProfile(){if(session)showPopupMsg('🦅','PROFIL: '+session.username.toUpperCase(),'Total koin: '+balance.toLocaleString());}
 
+// ── PAGE SWITCHER ──
+function switchPage(p){
+  document.getElementById('page-slot') && (document.getElementById('page-slot').style.display = p==='slot'?'block':'none');
+  document.getElementById('page-ach').style.display = p==='ach'?'block':'none';
+  document.getElementById('nav-slot').classList.toggle('active', p==='slot');
+  document.getElementById('nav-ach').classList.toggle('active', p==='ach');
+  if(p==='ach') renderAchievements();
+}
+
+// ── ACHIEVEMENTS ──
+const ACHIEVEMENTS = [
+  {id:'first_spin',  icon:'🐣', name:'Spin Pertama',     desc:'Lakukan spin pertamamu',          check:()=>totalSpins>=1},
+  {id:'spin10',      icon:'🔟', name:'10 Spin',           desc:'Sudah spin 10 kali',              check:()=>totalSpins>=10},
+  {id:'spin50',      icon:'💫', name:'50 Spin',           desc:'Udah 50 kali spin, rajin!',       check:()=>totalSpins>=50},
+  {id:'spin100',     icon:'💯', name:'100 Spin',          desc:'Gila... 100 kali spin!',          check:()=>totalSpins>=100},
+  {id:'first_win',   icon:'🏆', name:'Menang Pertama',    desc:'Raih kemenangan pertamamu',       check:()=>wins>=1},
+  {id:'win10',       icon:'🥇', name:'10 Kemenangan',     desc:'Menang 10 kali total',            check:()=>wins>=10},
+  {id:'streak3',     icon:'🔥', name:'Hat-trick',         desc:'Menang 3x berturut-turut',        check:()=>maxStreak>=3},
+  {id:'streak5',     icon:'⚡', name:'On Fire!',           desc:'Menang 5x berturut-turut',        check:()=>maxStreak>=5},
+  {id:'jackpot',     icon:'💎', name:'Jackpot!!!',         desc:'Kena jackpot 100x',               check:()=>gotJackpot},
+  {id:'bigbet',      icon:'💰', name:'Sultan Bet',         desc:'Pasang taruhan 5000 koin',        check:()=>maxBetUsed>=5000},
+  {id:'kaya',        icon:'🤑', name:'Sultan Koin',        desc:'Punya 50,000 koin sekaligus',     check:()=>balance>=50000},
+  {id:'bangkrut',    icon:'💸', name:'Bokek Total',        desc:'Koin tinggal di bawah 500',       check:()=>balance<500&&totalSpins>0},
+];
+
+let unlockedAch = new Set();
+let maxStreak = 0;
+let gotJackpot = false;
+let maxBetUsed = 0;
+
+function checkAchievements(){
+  ACHIEVEMENTS.forEach(a=>{
+    if(!unlockedAch.has(a.id) && a.check()){
+      unlockedAch.add(a.id);
+      saveAchievements();
+      showAchToast(a);
+    }
+  });
+  renderAchProgressBar();
+}
+
+function saveAchievements(){
+  if(session&&users[session.username]){
+    users[session.username].achievements=[...unlockedAch];
+    users[session.username].maxStreak=maxStreak;
+    users[session.username].gotJackpot=gotJackpot;
+    users[session.username].maxBetUsed=maxBetUsed;
+    localStorage.setItem('aw_users',JSON.stringify(users));
+  }
+}
+
+function loadAchievements(data){
+  unlockedAch = new Set(data.achievements||[]);
+  maxStreak   = data.maxStreak||0;
+  gotJackpot  = data.gotJackpot||false;
+  maxBetUsed  = data.maxBetUsed||0;
+}
+
+function renderAchievements(){
+  const grid=document.getElementById('ach-grid');
+  grid.innerHTML=ACHIEVEMENTS.map(a=>{
+    const done=unlockedAch.has(a.id);
+    return `<div class="ach-card ${done?'unlocked':'locked'}">
+      ${done?'<span class="ach-unlocked-tag">DAPAT!</span>':'<span class="ach-locked-tag">🔒</span>'}
+      <span class="ach-icon">${done?a.icon:'❓'}</span>
+      <div class="ach-name">${done?a.name:'???'}</div>
+      <div class="ach-desc">${done?a.desc:'Belum terbuka'}</div>
+    </div>`;
+  }).join('');
+  renderAchProgressBar();
+}
+
+function renderAchProgressBar(){
+  const n=unlockedAch.size, total=ACHIEVEMENTS.length;
+  const countEl=document.getElementById('ach-count');
+  const barEl=document.getElementById('ach-bar');
+  if(countEl) countEl.textContent=n+'/'+total;
+  if(barEl) barEl.style.width=(n/total*100)+'%';
+}
+
+let toastTimer=null;
+function showAchToast(a){
+  const t=document.getElementById('ach-toast');
+  document.getElementById('toast-icon').textContent=a.icon;
+  document.getElementById('toast-title').textContent='Badge Baru: '+a.name;
+  document.getElementById('toast-sub').textContent=a.desc;
+  t.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// ── PAGE SWITCHER ──
+function switchPage(p){
+  document.getElementById('page-slot').style.display   = p==='slot'   ?'block':'none';
+  document.getElementById('page-ach').style.display    = p==='ach'    ?'block':'none';
+  document.getElementById('page-hadiah').style.display = p==='hadiah' ?'block':'none';
+  document.getElementById('nav-slot').classList.toggle('active',   p==='slot');
+  document.getElementById('nav-ach').classList.toggle('active',    p==='ach');
+  document.getElementById('nav-hadiah').classList.toggle('active', p==='hadiah');
+  if(p==='ach')    renderAchievements();
+  if(p==='hadiah') renderHadiah();
+  if(p==='slot' && reelData.length===0) buildReels();
+}
+
+// ── HADIAH HARIAN ──
+const STREAK_REWARDS=[
+  {day:1,icon:'🎰',reward:'3 Spin'},
+  {day:2,icon:'⭐',reward:'5 Spin'},
+  {day:3,icon:'💰',reward:'500 Koin'},
+  {day:4,icon:'🔥',reward:'8 Spin'},
+  {day:5,icon:'💎',reward:'1000 Koin'},
+  {day:6,icon:'👑',reward:'10 Spin'},
+  {day:7,icon:'🦅',reward:'5000 Koin'},
+];
+function getTodayStr(){return new Date().toISOString().slice(0,10);}
+
+function klaimHarian(){
+  if(!session) return;
+  const data=users[session.username];
+  const today=getTodayStr();
+  if(data.lastDaily===today){showPopupMsg('⏰','Sudah Klaim!','Kamu sudah klaim hari ini. Balik lagi besok ya!');return;}
+  const yesterday=new Date(); yesterday.setDate(yesterday.getDate()-1);
+  const yStr=yesterday.toISOString().slice(0,10);
+  let dayStreak=(data.lastDaily===yStr)?(data.dailyStreak||0)+1:1;
+  if(dayStreak>7) dayStreak=1;
+  const r=STREAK_REWARDS[dayStreak-1];
+  let spinBonus=0,coinBonus=0;
+  if(r.reward.includes('Spin')) spinBonus=parseInt(r.reward);
+  if(r.reward.includes('Koin')) coinBonus=parseInt(r.reward);
+  freeSpins+=spinBonus+5;
+  balance+=coinBonus;
+  data.lastDaily=today; data.dailyStreak=dayStreak;
+  saveUser(); updateUI(); renderHadiah();
+  showPopupMsg('🎁','HADIAH KLAIM!',`Hari ke-${dayStreak}: +5 spin${spinBonus?` +${spinBonus} bonus spin`:''}${coinBonus?` +${coinBonus} koin`:''}! 🦅`);
+}
+
+let timerInterval=null;
+function renderHadiah(){
+  if(!session) return;
+  const data=users[session.username];
+  const today=getTodayStr();
+  const sudah=data.lastDaily===today;
+  const streak=data.dailyStreak||0;
+  const btn=document.getElementById('dc-btn');
+  const timerEl=document.getElementById('dc-timer');
+  if(btn){btn.disabled=sudah;btn.textContent=sudah?'✅ SUDAH DIKLAIM HARI INI':'KLAIM SEKARANG';}
+  if(timerInterval) clearInterval(timerInterval);
+  function updateTimer(){
+    if(!timerEl) return;
+    if(sudah){
+      const now=new Date(),next=new Date();next.setDate(now.getDate()+1);next.setHours(0,0,0,0);
+      const diff=next-now,h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);
+      timerEl.textContent=`⏰ Reset dalam ${h}j ${m}m ${s}d`;
+    } else { timerEl.textContent='🟢 Tersedia sekarang! Jangan lupa klaim!'; }
+  }
+  updateTimer(); timerInterval=setInterval(updateTimer,1000);
+  const grid=document.getElementById('streak-grid');
+  if(grid){
+    grid.innerHTML=STREAK_REWARDS.map((r,i)=>{
+      const d=i+1,isClaimed=streak>=d,isToday=streak+1===d&&!sudah;
+      return `<div class="streak-day ${isClaimed?'claimed':''} ${isToday?'today':''}">
+        <div class="sd-day">Hari ${d}</div>
+        <div class="sd-icon">${isClaimed||isToday?r.icon:'❓'}</div>
+        <div class="sd-reward">${isClaimed||isToday?r.reward:'???'}</div>
+      </div>`;
+    }).join('');
+  }
+}
+
 // ── INIT ──
+function initSlotPage(){
+  document.getElementById('page-slot').style.display='block';
+  document.getElementById('page-ach').style.display='none';
+  document.getElementById('page-hadiah').style.display='none';
+}
 if(session&&users[session.username]) startSession(session.username,users[session.username]);
 document.addEventListener('keydown',e=>{
   if(e.key==='Enter'){
@@ -829,6 +1146,19 @@ document.addEventListener('keydown',e=>{
     else if(rf.style.display!=='none')doRegister();
   }
 });
+
+// BALANCE TO RUPIAH
+
+function updateRupiah() {
+  const rupiah = balance / 10;
+
+  document.getElementById('result').textContent =
+    'Rp ' + rupiah.toLocaleString('id-ID');
+
+  document.getElementById('coin-display').textContent =
+    balance.toLocaleString('id-ID') + ' Koin';
+}
+
 </script>
 </body>
 </html>
