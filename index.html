@@ -148,14 +148,68 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 .fs-label{font-size:0.78rem;color:var(--purple);font-weight:700;}
 .fs-count{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;color:var(--gold);}
 .fs-btn{background:var(--purple);border:none;border-radius:6px;padding:0.28rem 0.75rem;color:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:0.72rem;cursor:pointer;}
-.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);display:flex;align-items:center;justify-content:center;z-index:200;padding:1rem;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+/* ── POPUP BASE ── */
+.popup-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:200;padding:1rem;opacity:0;pointer-events:none;transition:opacity 0.3s;background:rgba(0,0,0,0.85);}
 .popup-overlay.show{opacity:1;pointer-events:all;}
-.popup-box{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:1.5rem;width:100%;max-width:320px;text-align:center;transform:scale(0.9);transition:transform 0.3s;}
-.popup-overlay.show .popup-box{transform:scale(1);}
-.popup-icon{font-size:2.8rem;margin-bottom:0.4rem;}
-.popup-title{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--gold);letter-spacing:2px;}
-.popup-sub{color:var(--muted);font-size:0.88rem;margin:0.4rem 0 1rem;}
-.popup-btn{background:linear-gradient(135deg,var(--gold),#ffaa00);border:none;border-radius:10px;padding:0.75rem 2rem;color:#000;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.95rem;cursor:pointer;letter-spacing:1px;text-transform:uppercase;}
+.popup-box{width:100%;max-width:320px;text-align:center;transform:scale(0.85) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.35s;opacity:0;position:relative;}
+.popup-overlay.show .popup-box{transform:scale(1) translateY(0);opacity:1;}
+
+/* ── WIN POPUP ── */
+.popup-box.type-win{background:linear-gradient(160deg,#0d2200,#1a3800,#0d2200);border:2px solid var(--green);border-radius:22px;padding:1.6rem 1.4rem;box-shadow:0 0 40px rgba(0,255,136,0.25),0 0 80px rgba(0,255,136,0.1);}
+.popup-box.type-win .popup-title{color:var(--green);}
+.popup-box.type-win .popup-btn{background:linear-gradient(135deg,#00cc66,#00ff88);color:#000;}
+/* WIN: coins burst */
+.popup-box.type-win::before{content:'🪙';position:absolute;font-size:1.5rem;top:-18px;left:50%;transform:translateX(-50%);animation:coin-bounce 0.6s ease-out 0.3s both;}
+@keyframes coin-bounce{0%{transform:translateX(-50%) translateY(0) scale(0);opacity:0}60%{transform:translateX(-50%) translateY(-18px) scale(1.3);opacity:1}100%{transform:translateX(-50%) translateY(0) scale(1);opacity:1}}
+
+/* ── JACKPOT POPUP ── */
+.popup-box.type-jackpot{background:linear-gradient(160deg,#1a1000,#2a1a00,#1a1000);border:2px solid var(--gold);border-radius:22px;padding:1.6rem 1.4rem;box-shadow:0 0 50px rgba(255,215,0,0.4),0 0 100px rgba(255,215,0,0.15);animation:jackpot-pulse 1s ease-in-out infinite alternate;}
+@keyframes jackpot-pulse{0%{box-shadow:0 0 40px rgba(255,215,0,0.3)}100%{box-shadow:0 0 70px rgba(255,215,0,0.6)}}
+.popup-box.type-jackpot .popup-title{color:var(--gold);animation:title-scale 0.5s ease-out 0.2s both;}
+@keyframes title-scale{0%{transform:scale(0.5);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.popup-box.type-jackpot .popup-btn{background:linear-gradient(135deg,var(--gold),#ffcc00);}
+
+/* ── NEAR MISS POPUP ── */
+.popup-box.type-near{background:linear-gradient(160deg,#1a0f00,#2a1800,#1a0f00);border:2px solid #ff9900;border-radius:22px;padding:1.6rem 1.4rem;box-shadow:0 0 30px rgba(255,153,0,0.2);}
+.popup-box.type-near .popup-title{color:#ff9900;}
+.popup-box.type-near .popup-btn{background:linear-gradient(135deg,#ff9900,#ffbb00);color:#000;}
+
+/* ── LOSE POPUP ── */
+.popup-box.type-lose{background:linear-gradient(160deg,#1a0008,#250010,#1a0008);border:2px solid rgba(255,68,102,0.5);border-radius:22px;padding:1.6rem 1.4rem;box-shadow:0 0 30px rgba(255,68,102,0.15);}
+.popup-box.type-lose .popup-title{color:var(--red);}
+.popup-box.type-lose .popup-btn{background:linear-gradient(135deg,#cc2244,#ff4466);color:#fff;}
+/* LOSE: shake animation */
+.popup-box.type-lose{animation:lose-shake 0.4s ease-out 0.2s both;}
+@keyframes lose-shake{0%,100%{transform:scale(1) translateX(0)}20%{transform:scale(1.02) translateX(-6px)}40%{transform:scale(1.02) translateX(6px)}60%{transform:scale(1.02) translateX(-4px)}80%{transform:scale(1.01) translateX(4px)}}
+
+/* shared popup parts */
+.popup-icon{font-size:3rem;margin-bottom:0.3rem;display:block;animation:icon-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;}
+@keyframes icon-pop{0%{transform:scale(0) rotate(-20deg);opacity:0}100%{transform:scale(1) rotate(0deg);opacity:1}}
+.popup-title{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:2px;margin-bottom:0.2rem;}
+.popup-amount{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;letter-spacing:1px;margin:0.3rem 0;animation:amount-count 0.5s ease-out 0.3s both;}
+@keyframes amount-count{0%{transform:scale(0.5);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.popup-amount.plus{color:var(--green);}
+.popup-amount.minus{color:var(--red);}
+.popup-amount.gold{color:var(--gold);}
+.popup-sub{color:var(--muted);font-size:0.85rem;margin:0.3rem 0 1rem;line-height:1.4;}
+.popup-streak{display:inline-block;background:rgba(160,102,255,0.15);border:1px solid rgba(160,102,255,0.3);border-radius:20px;padding:0.2rem 0.8rem;font-size:0.75rem;color:var(--purple);font-weight:700;margin-bottom:0.8rem;}
+.popup-btn{border:none;border-radius:10px;padding:0.75rem 2rem;font-family:'Nunito',sans-serif;font-weight:900;font-size:0.95rem;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:transform 0.15s;width:100%;}
+.popup-btn:hover{transform:translateY(-1px);}
+.popup-btn2{border:none;border-radius:10px;padding:0.55rem 1rem;background:rgba(255,255,255,0.07);color:var(--muted);font-family:'Nunito',sans-serif;font-weight:700;font-size:0.82rem;cursor:pointer;width:100%;margin-top:0.5rem;}
+/* ── BIG WIN ── */
+.popup-box.type-bigwin{background:linear-gradient(160deg,#0d1a00,#1a2e00,#0d1a00);border:2px solid #aaff00;border-radius:22px;padding:1.6rem 1.4rem;box-shadow:0 0 40px rgba(170,255,0,0.2);}
+.popup-box.type-bigwin .popup-title{color:#aaff00;}
+.popup-box.type-bigwin .popup-btn{background:linear-gradient(135deg,#88cc00,#aaff00);color:#000;}
+
+/* ── INFO ── */
+.popup-box.type-info{background:var(--card);border:2px solid var(--border);border-radius:22px;padding:1.6rem 1.4rem;}
+.popup-box.type-info .popup-title{color:var(--gold);}
+.popup-box.type-info .popup-btn{background:linear-gradient(135deg,var(--gold),#ffaa00);color:#000;}
+
+/* stars decoration */
+.popup-stars{display:flex;justify-content:center;gap:4px;margin-bottom:0.5rem;animation:stars-in 0.4s ease-out 0.4s both;}
+@keyframes stars-in{0%{opacity:0;transform:scale(0.5)}100%{opacity:1;transform:scale(1)}}
+.popup-stars span{font-size:1.1rem;}
 .confetti-piece{position:fixed;width:7px;height:7px;top:-10px;z-index:300;animation:cffall linear forwards;pointer-events:none;}
 @keyframes cffall{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(110vh) rotate(720deg);opacity:0;}}
 .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--border);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom,0);}
@@ -172,7 +226,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     <div class="auth-logo">
       <div class="logo-icon">♣️</div>
       <h1>ABAS GACOR 336</h1>
-      <p>Sponsor: Tompel, Pentol dan Baso</p>
+      <p>Platform Slot #1 Geng Walet</p>
     </div>
     <div class="tab-group">
       <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Masuk</button>
@@ -186,7 +240,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     </div>
     <div id="reg-form" style="display:none">
       <div class="form-group"><label>Username</label><input type="text" id="reg-user" placeholder="Pilih username..."></div>
-      <div class="form-group"><label>Email</label><input type="email" id="reg-email" placeholder="email@gmail.com"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="reg-email" placeholder="email@contoh.com"></div>
       <div class="form-group"><label>Password</label><input type="password" id="reg-pass" placeholder="Buat password..."></div>
       <button class="btn-primary" onclick="doRegister()">🚀 Buat Akun Gratis</button>
     </div>
@@ -204,7 +258,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
     </div>
   </header>
 
-  <div class="ticker"><span class="ticker-inner">🏆 PENTOL99 menang 88,888 koin &nbsp;&nbsp;&nbsp; 💎 Parjigacor884 menang 250,000 koin &nbsp;&nbsp;&nbsp; 🔥 GacorBanget menang 777,777 koin &nbsp;&nbsp;&nbsp; 🎉 JACKPOT! WaletTerbang dapat 1,000,000 koin &nbsp;&nbsp;&nbsp; ⚡ Member baru bergabung dari Bandung &nbsp;&nbsp;&nbsp; 🦅 Total kemenangan hari ini: 99,999,999 koin</span></div>
+  <div class="ticker"><span class="ticker-inner">🏆 BosGini99 menang 88,888 koin &nbsp;&nbsp;&nbsp; 💎 Pantat_sultan menang 250,000 koin &nbsp;&nbsp;&nbsp; 🔥 Parjihuy93 menang 777,777 koin &nbsp;&nbsp;&nbsp; 🎉 JACKPOT! WaletTerbang dapat 1,000,000 koin &nbsp;&nbsp;&nbsp; ⚡ Member baru bergabung dari Bandung &nbsp;&nbsp;&nbsp; 🦅 Total kemenangan hari ini: 99,999,999 koin</span></div>
 
   <div class="welcome-banner">
     <div><h2>Halo, <span id="welcome-name">Player</span>! 👋</h2><p>Semoga hoki hari ini!</p></div>
@@ -221,7 +275,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 
     <!-- 3×3 SLOT -->
     <div class="slot-machine">
-      <div class="slot-title">⚡ MESIN BASO SPINNING ⚡</div>
+      <div class="slot-title">⚡ MESIN ANAK WALET ⚡</div>
       <div class="paylines-row" id="paylines-row">
         <span class="pl-tag" id="pl0">— Tengah</span>
         <span class="pl-tag" id="pl1">— Atas</span>
@@ -289,11 +343,15 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 </div>
 
 <div class="popup-overlay" id="popup">
-  <div class="popup-box">
-    <div class="popup-icon" id="popup-icon">🎉</div>
+  <div class="popup-box" id="popup-box">
+    <span class="popup-icon" id="popup-icon">🎉</span>
+    <div class="popup-stars" id="popup-stars"></div>
     <div class="popup-title" id="popup-title">JACKPOT!</div>
+    <div class="popup-amount" id="popup-amount"></div>
+    <div class="popup-streak" id="popup-streak" style="display:none"></div>
     <div class="popup-sub" id="popup-sub">Kamu menang!</div>
-    <button class="popup-btn" onclick="closePopup()">OK MANTAP!</button>
+    <button class="popup-btn" id="popup-btn" onclick="closePopup()">OK MANTAP!</button>
+    <button class="popup-btn2" id="popup-btn2" onclick="closePopup();doSpin();" style="display:none">🔄 SPIN LAGI!</button>
   </div>
 </div>
 
@@ -503,10 +561,9 @@ function finishSpin(grid){
     balance+=totalWin; wins++; streak++;
     resultEl.className='result-msg result-win';
     resultEl.textContent=`🏆 MENANG! +${totalWin.toLocaleString()} koin`;
-    // highlight win columns & lines
+    // highlight win lines
     winLines.forEach(({pl})=>{
       document.getElementById(pl.id).classList.add('lit');
-      // show win bar on each column at correct row
       pl.rows.forEach((row,col)=>{
         const ov=reelData[col].win_el;
         const bar=document.createElement('div');
@@ -515,20 +572,22 @@ function finishSpin(grid){
         ov.appendChild(bar);
         setTimeout(()=>bar.remove(),2500);
       });
-      // glow winning columns
       for(let c=0;c<3;c++) document.getElementById('rw-'+c).classList.add('winner');
       setTimeout(()=>{ for(let c=0;c<3;c++) document.getElementById('rw-'+c).classList.remove('winner'); },2200);
     });
-    if(totalWin>=bet*30) spawnConfetti();
-    if(totalWin>=bet*50) showPopupMsg('🎊', totalWin>=bet*100?'JACKPOT!!!':'SUPER WIN!', `Kamu menang ${totalWin.toLocaleString()} koin! 🦅`);
+    // show rich win popup after short delay
+    const maxMult = Math.max(...winLines.map(w=>w.mult));
+    setTimeout(()=>showWinPopup(totalWin, maxMult, streak), 600);
   } else if(near){
     streak=0;
     resultEl.className='result-msg result-near';
     resultEl.textContent='😤 Hampir! Coba lagi...';
+    setTimeout(()=>showNearPopup(), 400);
   } else {
     streak=0;
     resultEl.className='result-msg result-lose';
-    resultEl.textContent='😅 Belum beruntung, spin lagi!';
+    resultEl.textContent='😅 Belum beruntung!';
+    setTimeout(()=>showLosePopup(bet), 400);
   }
 
   addHistory(grid, totalWin, bet);
@@ -662,13 +721,101 @@ function toggleLogout(){
 }
 
 // ── POPUPS ──
-function showPopupMsg(icon,title,sub){
-  document.getElementById('popup-icon').textContent=icon;
-  document.getElementById('popup-title').textContent=title;
-  document.getElementById('popup-sub').textContent=sub;
-  document.getElementById('popup').classList.add('show');
+const LOSE_MSGS = [
+  'Nasib lagi bro... spin lagi!',
+  'Walet lagi tidur kayaknya 😴',
+  'Rezeki belum di sini, coba lagi!',
+  'Hampir... tapi belum 😬',
+  'Katanya yang sabar menang! 🙏',
+  'Cobaan hidup... spin sekali lagi!',
+];
+const WIN_MSGS = [
+  'Mantap jiwa! Koin makin tebal! 💪',
+  'Walet lagi baik hati nih 🦅',
+  'Rezekimu datang bro!',
+  'GAS TERUS! Momentum nih!',
+];
+const NEAR_MSGS = [
+  'Hampir banget! Sayang sekali...',
+  'Deket banget! Sekali lagi!',
+  'Dikit lagi kena! Jangan nyerah!',
+  'Kurang tipis... spin lagi bro!',
+];
+
+function showPopup(type, opts){
+  // type: 'jackpot' | 'bigwin' | 'win' | 'near' | 'lose' | 'info'
+  const box=document.getElementById('popup-box');
+  const overlay=document.getElementById('popup');
+
+  // reset classes
+  box.className='popup-box type-'+type;
+
+  // stars
+  const starsEl=document.getElementById('popup-stars');
+  if(type==='jackpot') starsEl.innerHTML='<span>⭐</span><span>🌟</span><span>💫</span><span>🌟</span><span>⭐</span>';
+  else if(type==='bigwin'||type==='win') starsEl.innerHTML='<span>✨</span><span>⭐</span><span>✨</span>';
+  else starsEl.innerHTML='';
+
+  document.getElementById('popup-icon').textContent = opts.icon||'🎰';
+  document.getElementById('popup-title').textContent = opts.title||'';
+  document.getElementById('popup-sub').textContent   = opts.sub||'';
+
+  // amount
+  const amtEl=document.getElementById('popup-amount');
+  if(opts.amount){
+    amtEl.textContent=opts.amount;
+    amtEl.className='popup-amount '+(opts.amountClass||'');
+    amtEl.style.display='block';
+  } else { amtEl.style.display='none'; }
+
+  // streak
+  const strkEl=document.getElementById('popup-streak');
+  if(opts.streak&&opts.streak>1){
+    strkEl.textContent='🔥 Streak '+opts.streak+'x!';
+    strkEl.style.display='inline-block';
+  } else { strkEl.style.display='none'; }
+
+  // btn
+  const btn=document.getElementById('popup-btn');
+  btn.textContent = opts.btnText||'OK';
+  btn.onclick=closePopup;
+
+  // spin again btn — hidden for all types
+  const btn2=document.getElementById('popup-btn2');
+  btn2.style.display='none';
+
+  overlay.classList.add('show');
 }
-function closePopup(){document.getElementById('popup').classList.remove('show');}
+
+function closePopup(){
+  document.getElementById('popup').classList.remove('show');
+}
+
+// Rich popup helpers
+function showWinPopup(amount, mult, streakCount){
+  if(mult>=100){
+    showPopup('jackpot',{icon:'💎',title:'JACKPOT!!!',sub:'SEMUA BARIS MENANG!!! 🦅🦅🦅',amount:'+'+amount.toLocaleString()+' KOIN',amountClass:'gold',streak:streakCount});
+    spawnConfetti(); spawnConfetti();
+  } else if(mult>=30){
+    showPopup('bigwin',{icon:'🎊',title:'SUPER WIN!',sub:WIN_MSGS[Math.floor(Math.random()*WIN_MSGS.length)],amount:'+'+amount.toLocaleString()+' KOIN',amountClass:'gold',streak:streakCount});
+    spawnConfetti();
+  } else {
+    showPopup('win',{icon:'🏆',title:'MENANG!',sub:WIN_MSGS[Math.floor(Math.random()*WIN_MSGS.length)],amount:'+'+amount.toLocaleString()+' KOIN',amountClass:'plus',streak:streakCount});
+  }
+}
+
+function showLosePopup(betAmt){
+  showPopup('lose',{icon:['😭','💀','😤','🤦','😩'][Math.floor(Math.random()*5)],title:'ZONK!',sub:LOSE_MSGS[Math.floor(Math.random()*LOSE_MSGS.length)],amount:'-'+betAmt.toLocaleString()+' KOIN',amountClass:'minus'});
+}
+
+function showNearPopup(){
+  showPopup('near',{icon:'😤',title:'HAMPIR!',sub:NEAR_MSGS[Math.floor(Math.random()*NEAR_MSGS.length)]});
+}
+
+function showPopupMsg(icon,title,sub){
+  showPopup('info',{icon,title,sub,btnText:'OK'});
+}
+
 function showLocked(){showPopupMsg('🔒','SEGERA HADIR','Fitur ini masih dalam pengembangan!');}
 function showPromo(){showPopupMsg('🎁','PROMO SPESIAL','Spin 10x dan dapatkan 1000 koin bonus!');}
 function showProfile(){if(session)showPopupMsg('🦅','PROFIL: '+session.username.toUpperCase(),'Total koin: '+balance.toLocaleString());}
